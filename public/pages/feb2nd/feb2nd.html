@@ -10,25 +10,25 @@
         <input type="checkbox" id="js-checkbox" class="checkbox" checked>
         <label for="js-checkbox">JavaScript</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#js-datatypes"><li>Data types</li></a>
+            <a href="#js-coercian"><li>Coercion</li></a>
         </div>
         
         <input type="checkbox" id="node-checkbox" class="checkbox" checked>
         <label for="node-checkbox">Node.js</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#nodejs"><li>Intro node</li></a>
         </div>
         
         <input type="checkbox" id="restapi-checkbox" class="checkbox" checked>
-        <label for="restapi-checkbox">Rest API</label>
+        <label for="restapi-checkbox">REST API</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#conventions"><li>Explained</li></a>
+            <a href="#example"><li>Example</li></a>
         </div>
     </div>
     <div id="page-content">
+        <br>
         <h1>Git</h1>
         <h2 id="git-commands">Commands</h2>
         <li><span class="commands">git init</span></li>
@@ -96,11 +96,177 @@
             but these are the most useful ones i use on a regular basis.
         </p>
         <h2 id="git-exp">Explained</h2>
+        <p>
+            Small explenations of some of the reasons to use git.
+        </p>
+        <p>
+            We use git for several reasons. Git make it easy to version things, as we can keep track of when, and what is going on. It also 
+            helps us to look at who is doing what. We can see who commits things and when it's done. This also helps when on bigger projects we use 
+            review as part of doing git commits, so before we merge anything, we have other people view our code, resulting in higher quality. We
+            can also revert to previous commit if things break, or we can see when it actually broke.
+        </p>
         <hr>
         <h1>JavaScript</h1>
+        <h2 id="js-datatypes">Data types, variables</h2>
+        <h3>Strings</h3>
+        <p>
+            We went over template literals with strings, and how we can use them for string interpolation.
+            We do this with `some text ${content}` to create a string with some text following by the string.<br>
+            Example: 
+        </p>
+        <li><span class="code">const firstName = "Anders";</span></li>
+        <li><span class="code">const lastName = "Latif";</span></li>
+        <li><span class="code">const fullName = `My first name is ${firstName} and my last name is ${lastName}`;</span></li>
+        <li><span class="code">console.log(fullName);</span></li>
+        <li><span class="code">My first name is Anders and my last name is Latif</span></li>
+        <h3>Numbers</h3>
+        <p>
+            We also talked about how number and strings mixed can be a little wierd in js. We had an example of a string being a year 
+            for example "2023" and then adding an increment of 1 to it. To do this we can just parseInt(year) or use Number(year) to parse 
+            the string into the type we want it to have.
+        </p>
+        <li><span class="code">const year = "2023";</span></li>
+        <li><span class="code">const increment = 1;</span></li>
+        <li><span class="code">const newYear = Number(year)+increment;</span></li>
+        <li><span class="code">console.log(newYear)</span></li>
+        <li><span class="code">2024</span></li>
+        <h3>Floats</h3>
+        <p>
+            We had several examples of floats. First was using parseFloat to change a string to a float and adding the numbers.
+        </p>
+        <li><span class="code">const numberOne = "1.10";</span></li>
+        <li><span class="code">const numberTwo = "2.30";</span></li>
+        <li><span class="code">const newNumber = parseFloat(numberOne)+parseFloat(numberTwo);</span></li>
+        <li><span class="code">console.log(newNumber)</span></li>
+        <li><span class="code">3.40</span></li>
+        <p>
+            We could do the same example as before with using Number instead. We can do this with using toFixed(2), which will result in 2 decimals.
+        </p>
+        <li><span class="code">const newNumber = (Number(numberOne)+Number(numberTwo).toFixed(2));</span></li>
+        <p>
+            We then worked with averages. We added several numbers and then took the average of them with decimals.
+            We do this with simple math just adding them together and dividing with amount and using toFixed(5) for 5 decimals.
+        </p>
+        <li><span class="code">const numberOne = 10;</span></li>
+        <li><span class="code">const numberTwo = 45;</span></li>
+        <li><span class="code">const numberThree = 98;</span></li>
+        <li><span class="code">const newNumber = ((numberOne + numberTwo + numberThree) / 3).toFixed(5);</span></li>
+        <li><span class="code">console.log(newNumber)</span></li>
+        <li><span class="code">51.00000</span></li>
+        <h3>Characters</h3>
+        <p>
+            We then worked with getting the 3rd / last character by index. There is several ways to solve this problems including string[number],
+            string.substring(2,3), string.slice(2,3), and what i prefer string.chatAr(string.length-1) as i find this and substring close
+            to what i have done in other languages, and length-1 seems like a more natural way to find last character.
+        </p>
+        <li><span class="code">const letters = "abc";</span></li>
+        <li><span class="code">const newLetter = letters.chatAr(letters.length-1);</span></li>
+        <li><span class="code">console.log(newLetter);</span></li>
+        <li><span class="code">c</span></li>
+        <h3>Replace</h3>
+        <p>
+            We talked about replace and how it replaces letters in a string. During this i made a regex, but found out by doing that, that regex
+            is slow in JavaScript and is not to be recommended.
+        </p>
+        <li><span class="code">const fact = "You are learning javascript";</span></li>
+        <li><span class="code">const newFact = fact.replace("j", "J");</span></li>
+        <li><span class="code">console.log(newFact);</span></li>
+        <li><span class="code">You are learning Javascript</span></li>
+        <h3>Objects</h3>
+        <p>
+            We talked about objects we also talked about how to use them. You can console.log(object.key) but we talked about if we need to use
+            the value you get in the future it's better to reassign it. 
+        </p>
+        <li><span class="code">const myObject = { message: "Hello, earling! I bring peace."};</span></li>
+        <li><span class="code">const message = myObject.message;</span></li>
+        <p>
+            We talked about creating a new key value pair. Adding isAllowed and set it to true.
+        </p>
+        <li><span class="code">const stackOverflow = { };</span></li>
+        <li><span class="code">stackOverflow.isAllowed = true;</span></li>
+        <p>
+            We talked about removing properties from objects and the correct way of doing so. We do this with the keyword delete.
+        </p>
+        <li><span class="code">const thisSong = { description: "This best song in the world." };</span></li>
+        <li><span class="code">delete thisSong.description;</span></li>
+        <h3>Arrays</h3>
+        <p>
+            Under arrays we talked about getting array content by index. For instance getting a in the following scenario.
+        </p>
+        <li><span class="code">const letters = ["a", "b", "c"];</span></li>
+        <li><span class="code">const letterKey = letters[1];</span></li>
+        <p>
+            How to easily insert items into an array. We do this with splice, where we first chose
+            the position and secondly chose for example 0 if we don't want to remove any elements from the array. This
+            is because splice takes 2 arguments. This example will insert the 3 statements after cucumber and not remove anything.
+        </p>
+        <li><span class="code">const diet = ["tomate", "cucumber", "rocket"];</span></li>
+        <li><span class="code">diet.splice(2, 0, "hamburger", "soda", "pizza");</span></li>
+        <p>
+            How to add an element to the end, and how to remove the last element. push() and pop(). 
+        </p>
+        <li><span class="code">diet.push("This");</span></li>
+        <li><span class="code">diet.pop();</span></li>
+        <p>
+            Copying an array to another array can be done with splice.
+        </p>
+        <li><span class="code">const newDiet = diet.splice();</span></li>
+        <p>
+            Looping through an array printing out every second letters for instance. 
+        </p>
+        <li><span class="code">for(let i = 1; i < lettersExpanded.length; i+=2){</span></li>
+        <li><span class="code">&nbsp;&nbsp;const everySecond = lettersExpanded[i];</span></li>
+        <li><span class="code">}</span></li>
+        <p>
+            Looping through an array with if else statement. Simply by putting the if statement inside the loop.
+            We talked shortly about just using for loops whenever you have something you can iterate through with a number
+        </p>
+        <h2 id="js-coercian">Type coercion</h2>
+        <p>
+            Javascript has type coercion. We can firstly use strict equality by using "===" or "!==" making sure we check for types
+            aswell. If we use "==" or "!=" we do not check for types and type coercion would just make "1" == 1.
+            Therefor we should always just make sure we have the correct types and use strict equality, otherwise we can get weird errors.
+        </p>
+        <p>
+            Another way to avoid this issue is typescript even though we have not talked about it. This makes sure you use the correct
+            types as you have to declare types to everything, even going in and out of functions.
+        </p>
+        <p>
+            Other ways to handle this could be if we are unsure on what we are recieving and it could be a number we could use Number(content)
+            to make sure that we always have a number no matter what we are recieving. If it would not be able to be a number,
+            then it would just be a NaN and we could easily see what error it is.
+        </p>
         <hr>
         <h1>Node.js</h1>
+        <h2 id="nodejs">Intro to node</h2>
+        <p>
+            Firstly for Node.js we installed it from https://nodejs.org.
+            Some of us including me had worked with it before, so we already had it.
+        </p>
+        <p>
+            With Node.js comes commands like:
+        </p>
+        <li><span class="commands">node script.js</span></li>
+        <p>
+            With this we can run javascript files. This helps to check if things are working for smaller things. Likes calculations
+            testing certain scenarios etc.
+        </p>
+        <p>
+            We didn't use it for anything else during this week.  
+        </p>
         <hr>
         <h1>Rest API</h1>
+        <h2 id="conventions">Conventions</h2>
+        <p>
+            For REST we talk about about 3 conventions. 
+        </p>
+        <li>Use the appropriate HTTP method for the action.</li>
+        <li>Correct ordering of the HTTP methods.</li>
+        <li>Naming the endpoints so that they map to the collection in the system.</li>
+        <h2 id="example">Example</h2>
+        <p>
+            Here's an example that gives a good overview:
+        </p>
+        <img src="../../assets/images/restapi.png">
     </div>
 </div>
