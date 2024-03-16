@@ -1,0 +1,59 @@
+#fp-image-container {
+    width: 100%;
+    height: 50vh;
+    background-image: url("../../assets/images/fp-background.jpg");
+    background-size: cover;
+    pointer-events: none;
+}
+#fp-image-container h1 {
+    position: relative; 
+    width: 100%;
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    text-align: center; 
+    font-size: 60px;
+    font-family: sans-serif; 
+    user-select: none;
+    -webkit-text-stroke: 2px black; 
+    -webkit-text-fill-color: white; 
+}
+#info-boxes {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+#info1,
+#info2,
+#info3 {
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    max-width: 150px;
+    border: 10px rgb(50, 45, 45);
+    border-style: double;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+#info1 p,
+#info2 p,
+#info3 p {
+    margin: 5px;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+@media (max-width: 764px) {
+    #info-boxes {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

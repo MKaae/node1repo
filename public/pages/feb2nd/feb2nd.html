@@ -1,0 +1,106 @@
+<div id="page-setup">
+    <div id="page-menu">
+        <input type="checkbox" id="git-checkbox" class="checkbox" checked>
+        <label for="git-checkbox">Git</label>
+        <div class="sub-menu">
+            <a href="#git-commands"><li>Commands</li></a>
+            <a href="#git-exp"><li>Explained</li></a>
+        </div>
+        
+        <input type="checkbox" id="js-checkbox" class="checkbox" checked>
+        <label for="js-checkbox">JavaScript</label>
+        <div class="sub-menu">
+            <li>First</li>
+            <li>Second</li>
+        </div>
+        
+        <input type="checkbox" id="node-checkbox" class="checkbox" checked>
+        <label for="node-checkbox">Node.js</label>
+        <div class="sub-menu">
+            <li>First</li>
+            <li>Second</li>
+        </div>
+        
+        <input type="checkbox" id="restapi-checkbox" class="checkbox" checked>
+        <label for="restapi-checkbox">Rest API</label>
+        <div class="sub-menu">
+            <li>First</li>
+            <li>Second</li>
+        </div>
+    </div>
+    <div id="page-content">
+        <h1>Git</h1>
+        <h2 id="git-commands">Commands</h2>
+        <li><span class="commands">git init</span></li>
+        <p>
+            This command is used to initiate git on a project. It does this by creating a .git in a sub directory.<br>
+            You can only run this command if there isn't already a .git file. And be sure you're int the root of the directory you want
+            to run this command on.
+        </p>
+        <li><span class="commands">git add -A</span></li>
+        <p>
+            This command will stage all the changes in the entire repository where you're using it.<br>
+            This will stage through the entire repository you're using in it, unlike ".", that just does it in the current directiory,
+            and all directories below it. Resulting in -A being more effecient if you have changes across multiple directories.
+        </p>
+        <li><span class="commands">git commit -m "message"</span></li>
+        <p>
+            When using this command we commit all the changes we have staged, and adds it to our local history as a new commit.<br>
+            This means we can track our changes. Also the -m stands for message which is the message we add to the commit.<br>
+            We want to have a clear message, a friend of mine told me "The action that it does", for instance,
+            "adds eventlisteners to the homepage".
+        </p>
+        <li><span class="commands">git push origin main</span></li>
+        <p>
+            This pushes the changes to the main branch of the project that we have added to our git. "origin" is the name,
+            that git has given the repository that we cloned from. "main" is the branch, and "push" is the command.
+            This means we can also push to other remote branches like this. We did this alot in our "greenplate" project in 3rd semester. 
+        </p>
+        <li><span class="commands">git checkout -b branchname</span></li>
+        <p>
+            This command creates and checks us into the new branch that we just created. We haven't used it alot this semester,
+            but we did use it the entirety of last semester during projects. "checkout" checks us into a branch, or you can say switches
+            branches. "-b" is how you create a new branch.
+        </p>
+        <li><span class="commands">git remote add origin githublinkToRepository</span></li>
+        <p>
+            This commands lets us add a remote to our repository. If we have already created a repository on github,
+            and wants to add a connection to it, we can use this command. Github also provides us with this command after creating
+            a new repository. 
+        </p>
+        <li><span class="commands">git branch -M main</span></li>
+        <p>
+           This renames the current branch to main. We use this before pushing to our github repository so we push with main branch,
+           the first time we push our project.
+        </p>
+        <li><span class="commands">git push -u origin main</span></li>
+        <p>
+            This pushing to our main to origin remote connection we made. We use -u to set up tracking so in the future we technically
+            don't have to write git push origin main, because it will always push to main. But i personally find it good practice to do so,
+            anwyays no matter where you are pushing to.
+        </p>
+        <li><span class="commands">git pull origin main</span></li>
+        <p>
+            This fetches the changes from the origin remote connection we have and adds them to our local git. For example if we make any changes
+            online, or if someone else does if multiple is working on it. We can't just push to main branch unless we pull the current
+            changes beforehand. 
+        </p>
+        <li><span class="commands">git status</span></li>
+        <p>
+            Shows the log and status of our git. This can be useful if you make a mistake and get behind / ahead of head to see what
+            is going on and what you should do to fix this. 
+        </p>
+        <br>
+        <p>
+            There is a few more commands we use but they are all situational so not listing them here, as i don't see it as a part of the assignment,
+            but these are the most useful ones i use on a regular basis.
+        </p>
+        <h2 id="git-exp">Explained</h2>
+        <hr>
+        <h1>JavaScript</h1>
+        <hr>
+        <h1>Node.js</h1>
+        <hr>
+        <h1>Rest API</h1>
+    </div>
+</div>

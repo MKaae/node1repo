@@ -1,0 +1,138 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+main {
+    flex: 1;
+    display: flex; 
+    margin-top: 100px;
+    flex-direction: column;
+    background-color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#logo-box{
+    min-width: 300px;
+    height: 100px;
+    text-align: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+#logo-box span{
+    display: inline;
+}
+#logo1{
+    font-size: 25px;
+    color: white;
+    background-color: black;
+    border-radius: 5px; 
+}
+#logo2{
+    font-size: 25px;
+    color:black;
+}
+#nav {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between; 
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    font-family: sans-serif;
+    z-index: 1;
+    border-bottom: 1px solid black;
+}
+#nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    gap: 20px;
+}
+#nav-links ul {
+    min-width: 60px;
+}
+
+#toggle-btn {
+    display: none;
+}
+@media (max-width: 764px) {
+    #nav:hover #nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        position: absolute;
+        width: 100%;
+        background-color: white; 
+        top: 100%;
+        left: 0;
+    }
+
+    #nav:hover #nav-links ul {
+        display: flex;
+        flex-direction: row;
+        border-bottom: none;
+    }
+
+    #nav:hover #nav-links ul a {
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 764px) {
+    #toggle-btn {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 35px;
+        margin-right: 20px;
+        color: black;
+    }
+    #nav-links ul {
+        display: none;
+    }
+    #nav #toggle-btn {
+        order: 3;
+        margin-top: 5px;
+    }
+    #nav #logo {
+        order: 1;
+        margin-left: 10px;
+    }
+    #nav #nav-links {
+        order: 2;
+        width: 100%;
+    }
+    #nav:hover #nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px; /* Adjust as needed */
+    }
+    #nav:hover #nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: none;
+    }
+    #nav:hover #nav-links ul a {
+        padding: 5px;
+    }
+}
+footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
