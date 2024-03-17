@@ -10,38 +10,161 @@
         <input type="checkbox" id="js-checkbox" class="checkbox" checked>
         <label for="js-checkbox">JavaScript</label>
         <div class="sub-menu">
-            <a href=""><li>Functions</li></a>
-            <a href=""><li>Callbacks</li></a>
+            <a href="#functions"><li>Functions</li></a>
+            <a href="#callbacks"><li>Callbacks</li></a>
+            <a href="#constlet"><li>const/let</li></a>
         </div>
         
         <input type="checkbox" id="exp-checkbox" class="checkbox" checked>
         <label for="exp-checkbox">Express</label>
         <div class="sub-menu">
-            <a href=""><li>Setting up</li></a>
-            <a href=""><li>Get's</li></a>
+            <a href="#exp-setup"><li>Setting up</li></a>
+            <a href="#exp-get"><li>Get's</li></a>
         </div>
 
         <input type="checkbox" id="modules-checkbox" class="checkbox" checked>
         <label for="modules-checkbox">Modules</label>
         <div class="sub-menu">
-            <a href=""><li>Explained</li></a>
+            <a href="#mod-exp"><li>Explained</li></a>
         </div>
     </div>
     <div id="page-content">
+        <br>
         <h1>Package.json</h1>
         <h2 id="setup-pj">Setting up</h2>
         <p>
             For setting up our package.json file we have several options.
         </p>
         <p>
-            
+            We can install it along with express with:
         </p>
-        <h2 id="exp-pj">Explained</h2>
+        <li><span class="commands">npm install express</span></li>
+        <p>
+            We can also manually just create the file. If we do this we just create the file called package.json, and we can input the
+            information that we want in it ourselves. Then afterwards we can call this command to install all the dependencies:
+        </p>
+        <li><span class="commands">npm install</span></li>
+        <h2 id="exp-dj">Explained</h2>
+        <p>
+            package.json is a component for our servers that include the version of dependencies in generel and scripts.<br>
+            For instance we use type module in our package.json to be able to import and export to organize our code.
+            We can also use our package.json to set up our projects and then install everything with npm install.<br>
+        </p>
+        <img src="../../assets/images/packagejson.png">
         <hr>
         <h1>JavaScript</h1>
+        <h2 id="functions">Functions</h2>
+        <p>
+            Our second week we went through ideas and thoughts about functions in javascript.
+        </p>
+        <p>
+            First we went through regular functions and how they work. A function consist of a function followed by a name, 
+            then we have () for parameter followed by {} for the content of the function. Example:
+        </p>
+        <p><span class="code">function aName(parameter){<br>&nbsp;&nbsp;console.log(parameter);<br>};</span></p>
+        <p>
+            We talked about another way to write a function by assigning it to a constant. Example:
+        </p>
+        <p><span class="code">const a = function(number, numberTwo){<br>&nbsp;&nbsp;return number*numberTwo;<br>};</span></p>
+        <p>
+            We talked about anonymous functions, functions that does not have a name example:
+        </p>
+        <p><span class="code">const a = (number, numberTwo) => {<br>&nbsp;&nbsp;return number*numberTwo;<br>};</span></p>
+        <p>
+            We talked about arrow function and how they can be used to reduce the code. For example the line above would be. 
+            Here we can see that we also don't need a return because arrow functions have an implicit return. Example: 
+        </p>
+        <p><span class="code">const a = (number, numberTwo) => number*numberTwo;</span></p>
+        <h2 id="callbacks">Callbacks</h2>
+        <p>
+            We talked about callback functions. Callback functions is executable code that is sent as an assignment to other functions.<br>
+            We can print this out to make it easier to see what is going on. Example:
+        </p>
+        <p><span class="code">function someFunction(number, genericAction){<br>&nbsp;&nbsp;return genericAction(number);<br>};</span></p>
+        <p><span class="code">const announceNumber = (number) => `This is number ${number}`<br>const annouce = someFunction("1", announceNumber());</span></p>
+        <p><span class="code">console.log(announce);</span></p>
+        <p>
+            Another way to use callbacks is by using an arrow function directly in the parameter of the function.<br>
+            We could print this out to make it easier to see what is going on. Example:
+        </p>
+        <p><span class="code">console.log(someFunction("1", (number) => `This is a new ${number}`));</span></p>
+        <h2 id="constlet">const/let</h2>
+        <p>
+            When we talk about const and let it's important to use the correct assignment. One of the reasons for this is that we
+            can reassign let variables, but we cannot reassign const variables. Const is constant in the value. That means it cannot
+            be reassigned to a new type of value. For example this would work:
+        </p>
+        <p><span class="code">const a = ["a", "b"];</span></p>
+        <p><span class="code">const a = [];</span></p>
+        <p>
+            Whereas this would not work because we are trying to reassign the value into a string.
+        </p>
+        <p><span class="code">const a = ""</span></p>
+        <p>
+            The general case is to use const whenever possible, but if we can't we use let. A good idea is to think about if we need
+            to reassign the value. If we don't we use const, if we do we use let. This is the most obvious example:
+        </p>
+        <p><span class="code">for(let i = 0; i < 10; i++){<br>&nbsp;&nbsp;console.log(i);<br>}</span></p>
+        <p>
+            Another example could be us getting an input from somewhere and needing to reassign a variable outside depending on the input.
+        </p>
+        <p><span class="code">let something;<br><br>if(this){<br>&nbsp;&nbsp;something = "thatthing"<br>} else {<br>&nbsp;&nbsp;something = "anotherthing"<br>}</span></p>
         <hr>
+        <p>
+            Lastly we should never use global variables or var because they polute the scope. 
+            Other reasons not to use var is that it gets impossible to do some actions with it.
+            For instance this doesn't work.
+        </p>
+        <p><span class="code">{<br>&nbsp;&nbsp;var someValue = true;<br>&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var someValue = false;><br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;console.log(someValue)<br>
+        }</span></p>
+        <p>
+            This would polute the outer scope resulting in this being false. Where as we can fix this with let.
+        </p>
+        <p><span class="code">{<br>&nbsp;&nbsp;let someValue = true;<br>&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let someValue = false;><br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;console.log(someValue)<br>
+        }</span></p>
+        <p>
+            Here the answer is true because the false in the innerscope is never used. So let is a solution to this problem.
+        </p>
         <h1>Express</h1>
+        <h2 id="exp-setup">Setting it up</h2>
+        <p>
+            For settings up express we can do it several ways.
+        </p>
+        <p>
+            We can manually write it into our package.json and install it with npm.
+        </p>
+        <img src="../../assets/images/packagejson.png">
+        <p>
+            Or we can install it with commands using:
+        </p>
+        <li><span class="commands">npm install express</span></li>
+        <p>
+            After setting up express with either way. We can then make our app.js file and import express into it.
+        </p>
+        <img src="../../assets/images/express1.png">
+        <p>
+            And then is technically all we need to set up express in our project and start using it. We import with import,
+            and then we instantiate it with const app.
+        </p>
+        <h2 id="exp-get">Get with express</h2>
+        <p>
+            After this we can set up our route. A route consists of an endpoint, a request and response and a callback function.
+            So all we need to add to our code after setting up express is this.
+        </p>
+        <img src="../../assets/images/express2.png">
         <hr>
         <h1>Modules</h1>
+        <h2 id="mod-exp">Explained</h2>
+        <p>
+            Our node_modules package is imoprted when we import anything with npm. It contains all the modules that we need to 
+            use for the dependencies we chose. The smart thing about the node_modules is that we can actually see the code inside
+            of it and there's also guides within those files for use.
+        </p>
+        <p>
+            The general use for us at this point is that we know that when we install express or any other dependcy we will know
+            that it is within our node_modules package in our project.
+        </p>
     </div>
 </div>
