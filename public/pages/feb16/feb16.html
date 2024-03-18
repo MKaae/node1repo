@@ -3,38 +3,145 @@
         <input type="checkbox" id="nodemon-checkbox" class="checkbox" checked>
         <label for="nodemon-checkbox">Nodemon</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#nodemon-exp"><li>Explained</li></a>
         </div>
         
         <input type="checkbox" id="js-checkbox" class="checkbox" checked>
         <label for="js-checkbox">JavaScript</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#loop-js"><li>Loops JS</li></a>
         </div>
         
         <input type="checkbox" id="node-checkbox" class="checkbox" checked>
-        <label for="node-checkbox">Url adresses</label>
+        <label for="node-checkbox">URL adresses</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#anatomy"><li>Anatomy</li></a>
         </div>
         
         <input type="checkbox" id="p&b-checkbox" class="checkbox" checked>
-        <label for="p&b-checkbox">Post & body</label>
+        <label for="p&b-checkbox">Express</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#queryparams"><li>Params</li></a>
+            <a href="#post"><li>Post/Body</li></a>
+            <a href="#htmlexp"><li>HTML</li></a>
         </div>
     </div>
     <div id="page-content">
-        <p>Nodemon</p>
+        <br>
+        <h1>Nodemon</h1>
+        <h2 id="nodemon-exp">Explained</h2>
+        <p>
+            This week we were introduced to nodemon. Nodemon is a tool we use as developers to test with in node. We can set up settings
+            for when it should restart the server. This means instead of having to write node file.js all the time, we can just run it
+            with nodemon with a command: 
+        </p>
+        <li><span class="commands">nodemon app.js</span></li>
+        <p>
+            For installation of nodemon all we installed nodemon globally, although you can install it in the directory you want to use
+            it in. Installing in globally saves time in the future as we don't have to isntall it in every project.
+        </p>
         <hr>
-        <p>JavaScript</p>
+        <h1>JavaScript</h1>
+        <h2 id="loop-js">Loops JS</h2>
+        <p>
+            For loops we talked about the different loop methods <p><span class="commands">forEach, map, filter, sort, find, reduce.</span></p>
+        </p>
+        <p>
+            <li><span class="commands">forEach</span> forEach is used to iterate over each element in the array so we can execute code on that element.</li>
+            <li><span class="commands">map</span> map creates a new array, we use it to transform elements into something new and map them to a new array.</li>
+            <li><span class="commands">filter</span> filter creates a new array with all the elements that works with the statement we chose for instance true, %2, false, contains etc.</li>
+            <li><span class="commands">sort</span> we used sort to sort. This can be useful with strings but different with numbers. I had personal experiences 
+            where i sorted numbers,but it sorted it wrong because it goes by 1 then 2 etc, resulting in 100 comming after 1. This can be fixed 
+            with an additional expression like sort((a, b) => a - b) to solve this issue.</li>
+            <li><span class="commands">find</span> we use find() to locate elements from arguments that fits for our elements.</li>
+            <li><span class="commands">reduce</span> we can use reduce to iterate through an array with an expression example addition of numbers.</li>
+        </p>
+        <p>
+            We talked about the spread operator "...". We use this so because if we want to continue working on the object afterwards,
+            we don't tamper with the original object. This is useful for more functional programming as we create new objects from the old instead of reusing the
+            the old ones. It also provides a more clean code, and easier to maintain in the future as we don't care what it recieves as the function,
+            always just creates new objects out of whatever comes in, so we could just edit this function instead of thinking about what it recieves.
+        </p>
+        <img src="../../assets/images/loop1.png">
+        <p>
+            In this case we also use map. Map creates a new array by mapping the elements inside to the new array. By using both map and spread
+            operator we create new elements based on the old ones, but the output that we get is entirely a new array that we can continue using.
+            With this method the original dog array would remain intact and unmodified.
+        </p>
+        <p>
+            Then we used another method that modifies the original array but also creates a new array. Both can be used as we would continue,
+            working on the array we get as output but it's important to understand the differences.
+        </p>
+        <img src="../../assets/images/loop2.png">
+        <p>
+            In this version we directly modify each dog in the dog array and afterwards we return that dog to our new array. Whereas before,
+            we used the spread operator to to create a new dog with the values of the old dog array then added the famelevel to the dogs.
+        </p>
         <hr>
-        <p>Url Adresses</p>
+        <h1>Url Adresses</h1>
+        <h2 id="anatomy">Anatomy</h2>
+        <p>
+            For URL's it's important that we can distinguish the different parts of the URL.
+        </p>
+        <p><span class="commands">https://www.google.com/search?h1=en&q=test</span></p>
+        <p>
+            In this example the <span class="commands">https://</span> stands for HTTP secure, or hypertext transfer protocol. The "s"
+            is important as it provides an additional layer of security. The <span class="commands">www</span> is the subdomain, world wide web,
+            and the <span class="commands">google.com</span> is the domain name. Then we are followed by an endpoint in this case 
+            <span class="commands">/search</span>, followed by query parameters <span class="commands">h1=en&q=test</span>. For
+            declaration of the query parameters we use a <span class="commands">?</span>. We can also use sections as i do on this site
+            with <span class="commands">#</span> if you click a link in the left menu. 
+        </p>
+        <p>
+            Last thing worth noting is that when we use
+            <span class="commands">localhost:8080</span> it is what we normally set up for our development environments. The
+            <span class="commands">:8080</span> in the end is declaration of the port number.
+        </p>
+        <p>
+            We also talked a bit about important PORT numbers. And we have some standard PORTs we need to know.
+        </p>
+        <li><span class="commands">3306</span> for our mySQL.</li>
+        <li><span class="commands">8080</span> for localhost dev environment.</li>
+        <li><span class="commands">80</span> for HTTP.</li>
+        <li><span class="commands">443</span> for HTTPS.</li>
+        <li><span class="commands">21</span> for FTP.</li>
+        <li><span class="commands">22</span> for SSH</li>
         <hr>
-        <p>Post & body</p>
+        <h1>Express</h1>
+        <h2 id="queryparams">Params</h2>
+        <p>
+            We talked a bit about parameters and how to use them in express. For parameters we write ":something", and when we want to retrieve
+            those parameters, we retrieve them by using the req object. It contains params, query, body & more but those 3 is all we need
+            to use for now.
+        </p>
+        <img src="../../assets/images/express3.png">
+        <h2 id="post">Post/Body</h2>
+        <p>
+            For post we learned about the body parser in express. This is what we use for now. We implement this by using the following
+            command where we want to be able to body parse:
+        </p>
+        <li><span class="commands">app.use(express.json());</span></li>
+        <p>
+            To actually use this in a post method we need to retrieve the body. We do this by using:
+        </p>
+        <li><span class="commands">req.body</span></li>
+        <br>
+        <img src="../../assets/images/express4.png">
+        <p>
+            Then we have the object that we can use. This object contains anything we sent along, could be firstName etc. and we retrieve
+            these items by just assigning the req.body to a const and then using .firstName etc. on what we want to retrieve.
+        </p>
+        <p>
+            We then used the following information to build up a drinks API where we used get and post methods but not put/patch yet.
+        </p>
+        <h2 id="htmlexp">HTML</h2>
+        <p>
+            This week we also served our first HTML with express. We did this with using <p><span class="code">__dirname</span></p> that gives
+            us the directory name so we can use that a long with the location in our directory for the html and use sendFile to serve it.
+        </p>
+        <img src="../../assets/images/html1.png">
+        <p>
+            By concatenating the __dirname with the html location in our project we serve the files location with our get method.
+        </p>
     </div>
 </div>
