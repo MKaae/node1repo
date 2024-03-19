@@ -3,38 +3,110 @@
         <input type="checkbox" id="ssrcsr-checkbox" class="checkbox" checked>
         <label for="ssrcsr-checkbox">SSR / CSR</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#load"><li>LoadTime</li></a>
+            <a href="#res"><li>Resource</li></a>
+            <a href="#seo"><li>SEO</li></a>
+            <a href="#cors"><li>CORS</li></a>
         </div>
         
         <input type="checkbox" id="files-checkbox" class="checkbox" checked>
         <label for="files-checkbox">Files</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#read"><li>Reading</li></a>
+            <a href="#usage"><li>Usage</li></a>
         </div>
         
         <input type="checkbox" id="nodemon-checkbox" class="checkbox" checked>
         <label for="nodemon-checkbox">Nodemon</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#ext-cmd"><li>Ext cmd</li></a>
         </div>
         
         <input type="checkbox" id="redirections-checkbox" class="checkbox" checked>
         <label for="redirections-checkbox">Redirections</label>
         <div class="sub-menu">
-            <li>First</li>
-            <li>Second</li>
+            <a href="#red-exp"><li>Explained</li></a>
         </div>
     </div>
     <div id="page-content">
-        <p>SSR / CSR</p>
+        <h1>SSR / CSR</h1>
+        <p>
+            We talked alot about the different aspects of server-side rendering vs client-side rendering.
+        </p>
+        <h2 id="load">Loadtime</h2>
+        <p>
+            SSR gives faster intial load times. This is because the server can send pre-rendered HTML that we pre-build.
+        </p>
+        <h2 id="res">Resources</h2>
+        <p>
+            SSR is relevant for resource management. When we process things with SSR it reduces the stress on the client-side, which can be useful
+            for example if it's a slow device they are using, resulting in much faster performance, since we are not bound by the device speed.
+        </p>
+        <p>
+            On the other hand we can reduce some stress on the server by using CSR and pushing some of the work off to the client.
+        </p>
+        <h2 id="seo">SEO</h2>
+        <p>
+            For SEO(Search Engine Optimization) we talked a bit about how SSR provides benefits to SEO, but you can also get the same result with
+            correct implementation with CSR. And we talked a bit about some other libraries like react have poor SEO handling, but have libraries to
+            fix the same issues.
+        </p>
+        <h2 id="cors">CORS</h2>
+        <p>
+            For CORS issues if we serve our HTML directly SSR solves all CORS issues for our own application. This isn't always good enough though
+            since if we have outside API's we still need to handle CORS issues. 
+        </p>
         <hr>
-        <p>Files</p>
+        <h1>Files</h1>
+        <h2 id="read">Reading</h2>
+        <p>
+            For reading files in JavaScript we need to import the in build file system on Node.js.
+        </p>
+        <p><span class="code">import fs from "fs";</span></p>
+        <p>
+           We can chose to either read the fight synchronously or asynchronously. For reading the files asynchronously we have <span class="code">fs.readFile</span>.
+           For reading the files asynchronously we have <span class="code">fs.readFileSync</span>. 
+        </p>
+        <h2 id="usage">Usage</h2>
+        <p>
+            Here's some examples of us using file reading in our application.
+        </p>
+        <img src="../../assets/images/files1.png">
+        <p>
+            We use it in our templatingEngine to read in our HTML files from our public directory. Here we concatonate them together after they're read, so we
+            can use the build HTML page in our router. Besides this i have personally used the Node.js file system to read in repositories from github.
+            It's the best file system i've worked with so far between Java, JavaScript and C#, very intuitive, fast and easy error handling.
+        </p>
         <hr>
-        <p>Nodemon</p>
+        <h1>Nodemon</h1>
+        <h2 id="ext-cmd">Exit cmd</h2>
+        <p>
+            For nodemon we went over ext command in nodemon. With this we can set up a listener so it restarts on all the files we need it to. This is relevant
+            because before it didn't restart on CSS & html changes i think it was. So what we did was first use the command in nodemon.
+        </p>
+        <p><span class="code">nodemon --ext html,js,json app.js</span></p>
+        <p>
+            This was the first options after this we talked about after that we talked about how to set it up as a script. For this we have 2 options.
+            We can either set it up with nodemon itself in a nodemon.json file we can create.
+        </p>
+        <img src="../../assets/images/nodemon1.png">
+        <p>
+            Or we can set up a script in our package.json where we normally set up scripts.
+        </p>
+        <img src="../../assets/images/nodemon2.png">
         <hr>
-        <p>Redirections</p>
+        <h1>Redirections</h1>
+        <h2 id="red-exp"></h2>
+        <p>
+            Redirection is about how we direct a user from one page to another.
+        </p>
+        <p>
+            We can redirect with either JavaScript on the client side with <span class="code">window.location.href = "/somePage"</span>, or we can redirect
+            with server using <span class="code">res.redirect("/somePage")</span>.
+        </p>
+        <p>
+            Client-side redirection can reduce server load, while server-side redirections gives us consistency across devices and platforms.
+            For server-side redirections we also get the option to use data on our server, for instance authentication or user roles.
+        </p>
     </div>
 </div>
