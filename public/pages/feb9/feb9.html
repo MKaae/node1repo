@@ -97,16 +97,14 @@
         <p><span class="code">console.log(someFunction("1", (number) => `This is a new ${number}`));</span></p>
         <h2 id="constlet">const/let</h2>
         <p>
-            When we talk about const and let it's important to use the correct assignment. One of the reasons for this is that we
-            can reassign let variables, but we cannot reassign const variables. Const is constant in the value. That means it cannot
-            be reassigned to a new type of value. For example this would work:
+            When we talk about const and let, it's important to use the correct assignment. One of the reasons for this is that we can reassign let variables, 
+            but we cannot reassign const variables. Const is constant in the sense that its value cannot be reassigned to a new memory reference.
         </p>
         <p><span class="code">const a = ["a", "b"];</span></p>
-        <p><span class="code">const a = [];</span></p>
         <p>
-            Whereas this would not work because we are trying to reassign the value into a string.
+            This would not work because we are trying to reassign the value into a string, which is a different data type:
         </p>
-        <p><span class="code">const a = ""</span></p>
+        <p><span class="code">const a = "";</span></p>
         <p>
             The general case is to use const whenever possible, but if we can't we use let. A good idea is to think about if we need
             to reassign the value. If we don't we use const, if we do we use let. This is the most obvious example:
