@@ -119,7 +119,7 @@ a {
     #nav:hover #nav-links {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 5px; /* Adjust as needed */
+        gap: 5px; 
     }
     #nav:hover #nav-links ul {
         display: flex;
